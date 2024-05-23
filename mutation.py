@@ -1,11 +1,18 @@
-def mutate_string(string, position, character):
-    lst = list(string)
-    lst[position] = character
-    s = ''.join(lst)
-    return s
+input()
+a = set(map(int, input().split()))
 
-if __name__ == '__main__':
-    s = input()
-    i, c = input().split()
-    s_new = mutate_string(s, int(i), c)
-    print(s_new)
+n = int(input())
+
+for _ in range(n):
+    command, _ = input().split() 
+    other_set = set(map(int, input().split())) 
+    if command == "update":
+        a.update(other_set)
+    elif command == "intersection_update":
+        a.intersection_update(other_set)
+    elif command == "difference_update":
+        a.difference_update(other_set)
+    elif command == "symmetric_difference_update":
+        a.symmetric_difference_update(other_set)
+
+print(sum(a))
